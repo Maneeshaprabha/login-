@@ -48,13 +48,14 @@ const ParticleNetwork: React.FC = () => {
     connections.current = newConnections;
   };
 
-  const animate = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+ const animate = () => {
+  const canvas = canvasRef.current;
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     particles.current.forEach((particle) => {
       particle.x += particle.vx;
@@ -148,7 +149,8 @@ const ParticleNetwork: React.FC = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('resize', () => location.reload());
+   window.addEventListener('resize', () => window.location.reload());
+
 
     setTimeout(() => setShowContent(true), 500);
 
@@ -170,7 +172,7 @@ const ParticleNetwork: React.FC = () => {
             <div className="flex items-center">
               <div className="h-10 w-10 mr-3 border-2 border-gray-700 rounded-full overflow-hidden">
                 <img
-                  src="https://v0.dev/ovgIJ.png"
+                  src="../public/black.jpg"
                   alt="Profile"
                   className="h-full w-full object-cover"
                 />
