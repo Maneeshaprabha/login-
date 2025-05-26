@@ -4,14 +4,14 @@ import axios from "axios";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+//   const [error, setError] = useState("");
 
 const handleLogin = async () => {
   try {
     const response = await axios.post("http://localhost:5000/login", {
       email,
       password,
-      user: "testuser", // explicitly include user
+    
     });
     localStorage.setItem("token", response.data.token);
     alert("Login successful!");
@@ -47,7 +47,7 @@ const handleLogin = async () => {
         >
           Login
         </button>
-        {error && <p className="text-red-500 mt-2">{error}</p>}
+        {/* {error && <p className="text-red-500 mt-2">{error}</p>} */}
       </div>
     </div>
   );
